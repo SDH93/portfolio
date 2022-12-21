@@ -23,8 +23,7 @@ const elSectionCount = elSection.length;
 const ContentOffset = document.querySelector(".content_inner").offsetTop;
 
 elSection.forEach(function (item, index) {
-    // $(item).on("", function (event) {});
-    item.addEventListener("mousewheel", function (event) {
+    item.addEventListener("wheel", function (event) {
         event.preventDefault();
         let delta = 0;
 
@@ -50,14 +49,14 @@ elSection.forEach(function (item, index) {
                     // console.log(elSectionNext);
                 } catch (e) {}
             }
-            if (moveTop > ContentOffset) {
-                elNavbar.style.position = "fixed";
-            }
-            if (moveTop < ContentOffset) {
-                setTimeout(() => {
-                    elNavbar.style.position = "absolute";
-                }, 200);
-            }
+            // if (moveTop > ContentOffset) {
+            //     elNavbar.style.position = "fixed";
+            // }
+            // if (moveTop < ContentOffset) {
+            //     setTimeout(() => {
+            //         elNavbar.style.position = "absolute";
+            //     }, 200);
+            // }
         }
 
         // wheel up : move to previous section
@@ -72,14 +71,14 @@ elSection.forEach(function (item, index) {
                     // console.log("스크롤값", window.scrollY);
                 } catch (e) {}
             }
-            if (moveTop < ContentOffset) {
-                setTimeout(() => {
-                    elNavbar.style.position = "absolute";
-                }, 500);
-            }
-            if (moveTop < 100) {
-                elNavbar.style.position = "absolute";
-            }
+            // if (moveTop < ContentOffset) {
+            //     setTimeout(() => {
+            //         elNavbar.style.position = "absolute";
+            //     }, 500);
+            // }
+            // if (moveTop < 100) {
+            //     elNavbar.style.position = "absolute";
+            // }
         }
 
         // console.log("떨어진 거리", ContentOffset);
@@ -88,6 +87,8 @@ elSection.forEach(function (item, index) {
         const body = document.querySelector("html");
         window.scrollTo({ top: moveTop, left: 0, behavior: "smooth" });
     });
+
+    $(window).on("scroll", function (event) {});
 });
 
 // window.onscroll = function () {
@@ -117,9 +118,16 @@ elSection.forEach(function (item, index) {
 // };
 
 //navbar
-const Main1Top = document.querySelector(".main1").getBoundingClientRect().top;
-const Main2Top = document.querySelector(".main2").getBoundingClientRect().top;
-const Main3Top = document.querySelector(".main3").getBoundingClientRect().top;
+
+let Main1Top = $(".main1").offset().top;
+let Main2Top = $(".main2").offset().top;
+let Main3Top = $(".main3").offset().top;
+window.onresize = () => {
+    Main1Top = $(".main1").offset().top;
+    Main2Top = $(".main2").offset().top;
+    Main3Top = $(".main3").offset().top;
+};
+
 const elBar = document.querySelector("span.bar");
 
 const elHeaderBarLi = document.querySelectorAll(".header_bar li");
@@ -132,6 +140,13 @@ console.log("Main3Top", Main3Top);
 let pos = { y: 0 };
 window.onscroll = () => {
     pos.y = window.scrollY;
+
+    if (pos.y >= Main1Top) {
+        elNavbar.style.position = "fixed";
+    }
+    if (pos.y < Main1Top) {
+        elNavbar.style.position = "absolute";
+    }
 
     if (
         Main1Top * 0.9 < window.pageYOffset &&
@@ -159,6 +174,9 @@ window.onscroll = () => {
         width:${elMenu[1].offsetWidth}px;
         left:${elMenu[1].offsetLeft}px;
         background:#500089`;
+        document.querySelectorAll(".main2 .content div").forEach((item) => {
+            item.classList.add("up");
+        });
         // console.log("main2");
     }
     if (
@@ -196,3 +214,26 @@ elHeaderBarLi[2].addEventListener("click", () => {
     document.querySelector(".main3").scrollIntoView({ behavior: "smooth" });
     elNavbar.style.position = "fixed";
 });
+
+//이메일 복사 클릭
+
+const elEmail = document.querySelector("a.email");
+elEmail.addEventListener("click", (e) => {
+    e.preventDefault();
+    var t = e.target;
+    var input = t.previousElementSibling;
+    input.select(); //문자열 전체 선택
+    document.execCommand("copy"); //복사
+    document.getSelection().removeAllRanges(); //선택 영역 해제
+    t.focus(); //input.select(); 때 옮겨진 포커스를 원래대로 돌린다
+    alert("ctrl + v 해서 복사된 값을 확인해보세요.");
+});
+// function copyToClipBoard(e) {
+//     var t = e.target;
+//     var input = t.previousElementSibling;
+//     input.select(); //문자열 전체 선택
+//     document.execCommand("copy"); //복사
+//     document.getSelection().removeAllRanges(); //선택 영역 해제
+//     t.focus(); //input.select(); 때 옮겨진 포커스를 원래대로 돌린다
+//     alert("ctrl + v 해서 복사된 값을 확인해보세요.");
+// }
