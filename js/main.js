@@ -220,20 +220,25 @@ elHeaderBarLi[2].addEventListener("click", () => {
 const elEmail = document.querySelector("a.email");
 elEmail.addEventListener("click", (e) => {
     e.preventDefault();
-    var t = e.target;
-    var input = t.previousElementSibling;
-    input.select(); //문자열 전체 선택
-    document.execCommand("copy"); //복사
-    document.getSelection().removeAllRanges(); //선택 영역 해제
-    t.focus(); //input.select(); 때 옮겨진 포커스를 원래대로 돌린다
-    alert("ctrl + v 해서 복사된 값을 확인해보세요.");
+    const text = elEmail.textContent;
+    const textarea = document.createElement("textarea");
+    textarea.textContent = text;
+    document.body.append(textarea);
+    textarea.select();
+    document.execCommand("copy");
+    textarea.remove();
+    alert("email이 복사되었습니다!");
 });
-// function copyToClipBoard(e) {
-//     var t = e.target;
-//     var input = t.previousElementSibling;
-//     input.select(); //문자열 전체 선택
-//     document.execCommand("copy"); //복사
-//     document.getSelection().removeAllRanges(); //선택 영역 해제
-//     t.focus(); //input.select(); 때 옮겨진 포커스를 원래대로 돌린다
-//     alert("ctrl + v 해서 복사된 값을 확인해보세요.");
-// }
+
+let swiper = new Swiper(".myswiper", {
+    slidesPerView: 3,
+    spaceBetween: 20,
+    slidesPerView: "auto",
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+    768: {
+        slidesPerView: 1,
+    },
+});

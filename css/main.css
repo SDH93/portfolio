@@ -860,7 +860,7 @@ section {
     justify-content: space-around;
   }
 }
-@media (max-width: 768px) and (max-width: 400px) {
+@media (max-width: 768px) and (max-width: 500px) {
   .main1 .info .inner .content .text_box .info_text {
     display: none;
   }
@@ -869,7 +869,7 @@ section {
   .main1 .info .inner .content .text_box .info_text p {
     font-size: 10px;
     line-height: 14px;
-    margin: 5px 0;
+    margin: 10px 0;
   }
 }
 @media (max-width: 768px) {
@@ -881,12 +881,6 @@ section {
   }
 }
 @media (max-width: 768px) {
-  .main1 .info .inner .content .text_box .info_text2 {
-    display: flex;
-  }
-  .main1 .info .inner .content .text_box .info_text2 .box {
-    width: 50%;
-  }
   .main1 .info .inner .content .text_box .info_text2 h3 {
     font-size: 14px;
     margin: 0;
@@ -921,23 +915,23 @@ section {
 }
 .skill .inner .content .html {
   background: linear-gradient(45deg, #d7b0f3, #cdb8da);
-  -webkit-animation-delay: 300ms;
-          animation-delay: 300ms;
+  -webkit-animation-delay: 200ms;
+          animation-delay: 200ms;
 }
 .skill .inner .content .javascript {
   background: linear-gradient(45deg, #48c6ef, #c9dadf);
-  -webkit-animation-delay: 600ms;
-          animation-delay: 600ms;
+  -webkit-animation-delay: 400ms;
+          animation-delay: 400ms;
 }
 .skill .inner .content .react {
   background: linear-gradient(45deg, #fff4c2, #faf8ee);
-  -webkit-animation-delay: 900ms;
-          animation-delay: 900ms;
+  -webkit-animation-delay: 600ms;
+          animation-delay: 600ms;
 }
 .skill .inner .content .etc {
   background: linear-gradient(45deg, #48b9af, #fff);
-  -webkit-animation-delay: 1200ms;
-          animation-delay: 1200ms;
+  -webkit-animation-delay: 800ms;
+          animation-delay: 800ms;
 }
 @-webkit-keyframes divUP {
   0% {
@@ -1004,4 +998,206 @@ section {
   .skill .inner .content ul li {
     font-size: 10px;
   }
+}
+@media (max-width: 500px) {
+  .skill .inner .content .box {
+    padding: 5px 10px;
+    margin: 5px;
+  }
+  .skill .inner .content h3 {
+    font-size: 12px;
+  }
+  .skill .inner .content ul li {
+    font-size: 8px;
+  }
+}
+
+.portfolio .inner .content {
+  overflow: hidden;
+  margin: 0;
+}
+@media (max-width: 768px) {
+  .portfolio .inner .content {
+    display: flex;
+    justify-content: center;
+    width: 200px;
+    margin: 0 auto;
+    padding: 0;
+  }
+}
+.portfolio .inner .content .card {
+  width: 300px;
+  height: 500px;
+  padding: 20px 10px;
+  border: 1px solid #555;
+  border-radius: 10px;
+}
+.portfolio .inner .content .card .img_box {
+  height: 50%;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-bottom: transparent;
+  padding: 5px;
+}
+.portfolio .inner .content .card .img_box img {
+  max-width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.portfolio .inner .content .card .card-body {
+  border: 1px solid #ccc;
+  border-top: transparent;
+  position: relative;
+  padding: 10px;
+  height: 50%;
+}
+.portfolio .inner .content .card .card-body h5 {
+  font-size: 24px;
+  text-align: center;
+}
+.portfolio .inner .content .card .card-body p {
+  font-size: 16px;
+  margin: 5px;
+}
+.portfolio .inner .content .card .card-body a {
+  background-color: #2fa599;
+  color: #fff;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+.portfolio .inner .content .card .card-body span {
+  display: inline-block;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 5px 10px;
+  margin: 5px 5px 5px 0;
+}
+.portfolio .inner .content .card .card-body span.javascript {
+  background-color: #e9b925;
+}
+.portfolio .inner .content .card .card-body span.bootstrap {
+  background-color: #6d11ee;
+}
+.portfolio .inner .content .card .card-body span.sass {
+  background-color: #ca6196;
+}
+.portfolio .inner .content .card .card-body span.PWA {
+  background-color: #0091f7;
+}
+.portfolio .inner .content .card .card-body span.git {
+  background-color: #e84c33;
+}
+.portfolio .inner .content .card .card-body span.react {
+  background-color: #60cbeb;
+}
+@media (max-width: 1200px) {
+  .portfolio .inner .content .card {
+    width: 250px;
+    height: 400px;
+  }
+  .portfolio .inner .content .card .card-body {
+    border: 1px solid #ccc;
+    border-top: transparent;
+    position: relative;
+    padding: 10px;
+    height: 50%;
+  }
+  .portfolio .inner .content .card .card-body h5 {
+    font-size: 18px;
+    text-align: center;
+  }
+  .portfolio .inner .content .card .card-body p {
+    font-size: 12px;
+    margin: 5px;
+  }
+  .portfolio .inner .content .card .card-body a {
+    background-color: #2fa599;
+    color: #fff;
+    position: absolute;
+    font-size: 14px;
+    bottom: 10px;
+    right: 10px;
+  }
+  .portfolio .inner .content .card .card-body span {
+    display: inline-block;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    font-size: 10px;
+    padding: 5px 10px;
+    margin: 5px 5px 5px 0;
+  }
+}
+@media (max-width: 768px) {
+  .portfolio .inner .content .card {
+    width: 200px;
+    height: 350px;
+  }
+  .portfolio .inner .content .card .card-body {
+    border: 1px solid #ccc;
+    border-top: transparent;
+    position: relative;
+    padding: 5px;
+    height: 50%;
+  }
+  .portfolio .inner .content .card .card-body h5 {
+    font-size: 14px;
+    text-align: center;
+  }
+  .portfolio .inner .content .card .card-body p {
+    font-size: 10px;
+    margin: 5px;
+  }
+  .portfolio .inner .content .card .card-body a {
+    background-color: #2fa599;
+    color: #fff;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    font-size: 10px;
+    padding: 5px 10px;
+  }
+  .portfolio .inner .content .card .card-body span {
+    display: inline-block;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    font-size: 8px;
+    padding: 5px 5px;
+    margin: 5px 5px 5px 0;
+  }
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.swiper-slide {
+  font-size: 18px;
+  background: #fff;
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #2fa599;
 }/*# sourceMappingURL=main.css.map */
