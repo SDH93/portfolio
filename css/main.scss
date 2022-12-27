@@ -1186,6 +1186,7 @@ section {
     border-radius: 50%;
     cursor: pointer;
     z-index: 2;
+    opacity: 0;
     transition: opacity 300ms ease-out;
     @media (max-width: 768px) {
         right: 10px;
