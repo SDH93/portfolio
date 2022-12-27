@@ -129,6 +129,7 @@ window.onresize = () => {
 };
 
 const elBar = document.querySelector("span.bar");
+const elTopBtn = document.querySelector(".top_btn");
 
 const elHeaderBarLi = document.querySelectorAll(".header_bar li");
 const elMenu = document.querySelectorAll(".header_bar li span");
@@ -143,9 +144,11 @@ window.onscroll = () => {
 
     if (pos.y >= Main1Top) {
         elNavbar.style.position = "fixed";
+        elTopBtn.style.opacity = "1";
     }
     if (pos.y < Main1Top) {
         elNavbar.style.position = "absolute";
+        elTopBtn.style.opacity = "0";
     }
 
     if (
@@ -241,4 +244,9 @@ let swiper = new Swiper(".myswiper", {
     768: {
         slidesPerView: 1,
     },
+});
+
+//top btn
+elTopBtn.addEventListener("click", () => {
+    window.scrollTo(0, 0);
 });
