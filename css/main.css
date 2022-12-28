@@ -1093,6 +1093,12 @@ section {
 .portfolio .inner .content .card .card-body span.react {
   background-color: #60cbeb;
 }
+.portfolio .inner .content .card .card-body span.vue {
+  background-color: #00bb7c;
+}
+.portfolio .inner .content .card .card-body span.netlify {
+  background-color: #24c1b1;
+}
 @media (max-width: 1200px) {
   .portfolio .inner .content .card {
     width: 250px;
@@ -1220,8 +1226,8 @@ section {
 }
 @media (max-width: 768px) {
   .top_btn {
-    right: 10px;
-    bottom: 10px;
+    right: 20px;
+    bottom: 20px;
     width: 24px;
     height: 24px;
     line-height: 24px;

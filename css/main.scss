@@ -1052,6 +1052,12 @@ section {
                     span.react {
                         background-color: #60cbeb;
                     }
+                    span.vue {
+                        background-color: #00bb7c;
+                    }
+                    span.netlify {
+                        background-color: #24c1b1;
+                    }
                 }
             }
             @media (max-width: 1200px) {
@@ -1189,8 +1195,8 @@ section {
     opacity: 0;
     transition: opacity 300ms ease-out;
     @media (max-width: 768px) {
-        right: 10px;
-        bottom: 10px;
+        right: 20px;
+        bottom: 20px;
         width: 24px;
         height: 24px;
         line-height: 24px;
