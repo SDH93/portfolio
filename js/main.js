@@ -134,9 +134,9 @@ const elTopBtn = document.querySelector(".top_btn");
 const elHeaderBarLi = document.querySelectorAll(".header_bar li");
 const elMenu = document.querySelectorAll(".header_bar li span");
 
-console.log("Main1Top", Main1Top);
-console.log("Main2Top", Main2Top);
-console.log("Main3Top", Main3Top);
+// console.log("Main1Top", Main1Top);
+// console.log("Main2Top", Main2Top);
+// console.log("Main3Top", Main3Top);
 
 let pos = { y: 0 };
 window.onscroll = () => {
@@ -249,4 +249,44 @@ let swiper = new Swiper(".myswiper", {
 //top btn
 elTopBtn.addEventListener("click", () => {
     window.scrollTo(0, 0);
+});
+
+//popup
+const elPopupBtn = document.querySelectorAll("a.popup_btn");
+const elPopup = document.querySelector(".popup");
+const elPopupTitle = document.querySelector(".popup_title");
+const elPopupCard = document.querySelector(".popup_card .card");
+const elPopupText = document.querySelector(".popup_text_content");
+const elPopupCloseBtn = document.querySelector(".close_btn");
+const elCardTitle = document.querySelectorAll(".card-body .card-title");
+const elHideText = document.querySelectorAll(".hide_text");
+const elCard = document.querySelectorAll(".swiper-wrapper .card");
+const elSiteBtn = document.querySelectorAll(".site_btn");
+
+elPopupBtn.forEach((btn, index) => {
+    btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        elPopup.style.display = "flex";
+
+        setTimeout(() => {
+            elPopup.style.opacity = "1";
+        }, 10);
+        elPopupTitle.innerHTML = elCardTitle[index].innerHTML;
+        elPopupText.innerHTML = elHideText[index].innerHTML;
+
+        elPopupCard.innerHTML = elCard[index].innerHTML;
+
+        const elSiteBtnCopy = elSiteBtn[index].cloneNode(true);
+        elPopupText.append(elSiteBtnCopy);
+    });
+});
+
+elPopupCloseBtn.addEventListener("click", () => {
+    elPopup.style.opacity = "0";
+    setTimeout(() => {
+        elPopup.style.display = "none";
+    }, 500);
+    elPopupTitle.innerHTML = "";
+    elPopupText.innerHTML = "";
+    elPopupCard.innerHTML = "";
 });
