@@ -255,26 +255,37 @@ elTopBtn.addEventListener("click", () => {
 const elPopupBtn = document.querySelectorAll("a.popup_btn");
 const elPopup = document.querySelector(".popup");
 const elPopupTitle = document.querySelector(".popup_title");
-const elPopupCard = document.querySelector(".popup_card .card");
+const elPopupMockup = document.querySelector(".popup_mockup .mockup_wrap");
 const elPopupText = document.querySelector(".popup_text_content");
 const elPopupCloseBtn = document.querySelector(".close_btn");
+const elHideBadgeWrap = document.querySelectorAll(".hide_text .badge_wrap");
 const elCardTitle = document.querySelectorAll(".card-body .card-title");
 const elHideText = document.querySelectorAll(".hide_text");
 const elCard = document.querySelectorAll(".swiper-wrapper .card");
 const elSiteBtn = document.querySelectorAll(".site_btn");
+const elMockupImg = document.querySelectorAll(".hide_text .mockup");
+const elBadge = document.querySelectorAll(".badge_box");
 
 elPopupBtn.forEach((btn, index) => {
     btn.addEventListener("click", (e) => {
         e.preventDefault();
+
+        let elBadgeCopy = elBadge[index].cloneNode(true);
+        elHideBadgeWrap[index].append(elBadgeCopy);
+
         elPopup.style.display = "flex";
 
         setTimeout(() => {
             elPopup.style.opacity = "1";
         }, 10);
+
         elPopupTitle.innerHTML = elCardTitle[index].innerHTML;
         elPopupText.innerHTML = elHideText[index].innerHTML;
+        elPopupMockup.innerHTML = elMockupImg[index].outerHTML;
 
-        elPopupCard.innerHTML = elCard[index].innerHTML;
+        // elPopupCard.innerHTML = elCard[index].innerHTML;
+
+        //수정해야함
 
         const elSiteBtnCopy = elSiteBtn[index].cloneNode(true);
         elPopupText.append(elSiteBtnCopy);
@@ -288,5 +299,5 @@ elPopupCloseBtn.addEventListener("click", () => {
     }, 500);
     elPopupTitle.innerHTML = "";
     elPopupText.innerHTML = "";
-    elPopupCard.innerHTML = "";
+    // elPopupCard.innerHTML = "";
 });

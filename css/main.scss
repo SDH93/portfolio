@@ -1045,6 +1045,9 @@ section {
                     a.site_btn {
                         display: none;
                     }
+                    a.figma_btn {
+                        display: none;
+                    }
                     a {
                         transition: 300ms;
                     }
@@ -1071,6 +1074,9 @@ section {
                     }
                     span.git {
                         background-color: #e84c33;
+                    }
+                    span.figma {
+                        background-color: #9d56f7;
                     }
                     span.react {
                         background-color: #60cbeb;
@@ -1269,140 +1275,56 @@ section {
         .popup_content {
             display: flex;
             height: 90%;
-            .popup_card {
-                flex: 1;
+
+            span {
+                display: inline-block;
+                width: fit-content;
+                padding: 5px 10px;
+                margin: 5px 5px 5px 0;
+            }
+            span.javascript {
+                background-color: #e9b925;
+            }
+            span.bootstrap {
+                background-color: #6d11ee;
+            }
+            span.sass {
+                background-color: #ca6196;
+            }
+            span.PWA {
+                background-color: #0091f7;
+            }
+            span.git {
+                background-color: #e84c33;
+            }
+            span.react {
+                background-color: #60cbeb;
+            }
+            span.vue {
+                background-color: #00bb7c;
+            }
+            span.netlify {
+                background-color: #24c1b1;
+            }
+            .popup_mockup {
+                flex: 1.2;
                 display: flex;
                 align-items: center;
-
-                .card {
-                    width: 300px;
-                    height: 500px;
-                    padding: 20px 10px;
-                    margin: 0 auto;
-
-                    border: 1px solid #555;
-                    border-radius: 10px;
-
-                    .img_box {
-                        height: 50%;
-                        width: 100%;
-                        border: 1px solid #ccc;
-                        border-bottom: transparent;
-                        padding: 5px;
-                        img {
-                            max-width: 100%;
-                            height: 100%;
-                            object-fit: cover;
-                        }
-                    }
-                    .card-body {
-                        border: 1px solid #ccc;
-                        border-top: transparent;
-                        position: relative;
-                        padding: 10px;
-                        height: 50%;
-                        text-align: left;
-
-                        h5 {
-                            font-size: 24px;
-                            text-align: center;
-                        }
-                        p {
-                            font-size: 16px;
-                            margin: 5px;
-                        }
-                        a.site_btn {
-                            background-color: #2fa599;
-                            color: #fff;
-                            position: absolute;
-                            bottom: 10px;
-                            right: 10px;
-                            transition: 0;
-                        }
-                        a.site_btn:hover {
-                            font-weight: 700;
-                        }
-
-                        a.popup_btn {
-                            display: none;
-                        }
-                        span {
-                            display: inline-block;
-                            width: fit-content;
-                            padding: 5px 10px;
-                            margin: 5px 5px 5px 0;
-                        }
-                        span.javascript {
-                            background-color: #e9b925;
-                        }
-                        span.bootstrap {
-                            background-color: #6d11ee;
-                        }
-                        span.sass {
-                            background-color: #ca6196;
-                        }
-                        span.PWA {
-                            background-color: #0091f7;
-                        }
-                        span.git {
-                            background-color: #e84c33;
-                        }
-                        span.react {
-                            background-color: #60cbeb;
-                        }
-                        span.vue {
-                            background-color: #00bb7c;
-                        }
-                        span.netlify {
-                            background-color: #24c1b1;
-                        }
-                    }
-                    .hide_text {
-                        display: none;
-                    }
-                }
-                @media (max-width: 1200px) {
-                    .card {
-                        width: 250px;
-                        height: 400px;
-
-                        .card-body {
-                            border: 1px solid #ccc;
-                            border-top: transparent;
-                            position: relative;
-                            padding: 10px;
-                            height: 50%;
-
-                            h5 {
-                                font-size: 18px;
-                                text-align: center;
-                            }
-                            p {
-                                font-size: 12px;
-                                margin: 5px;
-                            }
-                            a.site_btn {
-                                background-color: #2fa599;
-                                color: #fff;
-                                position: absolute;
-                                font-size: 14px;
-                                bottom: 10px;
-                                right: 10px;
-                            }
-                            span {
-                                display: inline-block;
-                                width: fit-content;
-                                font-size: 10px;
-                                padding: 5px 10px;
-                                margin: 5px 5px 5px 0;
-                            }
-                        }
-                    }
-                }
                 @media (max-width: 768px) {
                     display: none;
                 }
-                overflow: scroll;
+
+                .mockup_wrap {
+                    // overflow: scroll;
+                    -ms-overflow-style: none; /* IE and Edge */
+                    scrollbar-width: none; /* Firefox */
+                    width: 100%;
+                    .mockup {
+                        max-width: 100%;
+                    }
+                }
+
+                // overflow: scroll;
                 -ms-overflow-style: none; /* IE and Edge */
                 scrollbar-width: none; /* Firefox */
             }
@@ -1410,7 +1332,7 @@ section {
                 display: none; /* Chrome, Safari, Opera*/
             }
             .popup_text {
-                flex: 1;
+                flex: 0.8;
                 padding: 20px;
                 overflow: scroll;
                 text-align: left;
@@ -1418,6 +1340,7 @@ section {
                 flex-direction: column;
 
                 @media (max-width: 768px) {
+                    flex: 1;
                     padding: 10px;
                 }
 
@@ -1448,22 +1371,42 @@ section {
                         font-size: 12px;
                         width: 100%;
                     }
-                    a.site_btn {
+                    .mockup {
                         display: none;
                         @media (max-width: 768px) {
                             display: block;
-                            background-color: #2fa599;
-                            color: #fff;
-                            font-size: 14px;
-                            width: fit-content;
-                            margin-top: 20px;
-                            margin-left: auto;
                         }
+                    }
+                    a.site_btn {
+                        display: block;
+                        background-color: #2fa599;
+                        color: #fff;
+                        font-size: 14px;
+                        width: fit-content;
+                        margin-top: 20px;
+                        margin-left: auto;
+                    }
+                    a.figma_btn {
+                        display: block;
+                        background-color: #9d56f7;
+                        color: #fff;
+                        font-size: 14px;
+                        width: fit-content;
+                        margin-top: 20px;
+                        margin-left: auto;
                     }
                 }
             }
             .popup_text::-webkit-scrollbar {
                 display: none; /* Chrome, Safari, Opera*/
+            }
+            @media (max-width: 1200px) {
+                .popup_mockup {
+                    flex: 1;
+                }
+                .popup_text {
+                    flex: 1;
+                }
             }
         }
     }
