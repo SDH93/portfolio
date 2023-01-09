@@ -297,6 +297,9 @@ elPopupCloseBtn.addEventListener("click", () => {
     setTimeout(() => {
         elPopup.style.display = "none";
     }, 500);
+    elHideBadgeWrap.forEach((item) => {
+        item.innerHTML = "";
+    });
     elPopupTitle.innerHTML = "";
     elPopupText.innerHTML = "";
     // elPopupCard.innerHTML = "";
