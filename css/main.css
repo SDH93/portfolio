@@ -1332,6 +1332,9 @@ section {
 .popup .popup_container .popup_content span.git {
   background-color: #e84c33;
 }
+.popup .popup_container .popup_content span.figma {
+  background-color: #9d56f7;
+}
 .popup .popup_container .popup_content span.react {
   background-color: #60cbeb;
 }
